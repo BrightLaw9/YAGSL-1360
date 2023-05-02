@@ -33,16 +33,21 @@ public class DIOAbsoluteEncoderSwerve extends SwerveAbsoluteEncoder {
     }
 
     @Override
+    /**
+     * Get the absolute position of the encoder.
+     *
+     * @return Absolute position in degrees from [0, 360).
+     */
     public double getAbsolutePosition() {
-        double angle = Math.toRadians(360.0 * encoder.getOutput()) + this.offset;
+        double angle = (this.inverted ? -1.0 : 1.0)  * ((360.0 * encoder.getOutput()) + this.offset);
 
-            angle %= 2.0 * Math.PI;
+        angle %= 360.0;
 
-            if (angle < 0.0) {
-                angle += 2.0 * Math.PI;
-            }
+        if (angle < 0.0) {
+            angle += 360.0;
+        }
 
-            return angle;
+        return angle;
     }
 
     @Override
