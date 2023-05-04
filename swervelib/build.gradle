@@ -27,16 +27,24 @@ allprojects {
 }
 
 dependencies {
-    implementation 'edu.wpi.first.wpilibj:wpilibj-java:2023.4.2'
-
     implementation wpi.java.deps.wpilib()
     implementation wpi.java.vendor.java()
+
+    roborioRelease wpi.java.deps.wpilibJniRelease(wpi.platforms.roborio)
+    roborioRelease wpi.java.vendor.jniRelease(wpi.platforms.roborio)
+
+    nativeDebug wpi.java.deps.wpilibJniDebug(wpi.platforms.desktop)
+    nativeDebug wpi.java.vendor.jniDebug(wpi.platforms.desktop)
+
+    nativeRelease wpi.java.deps.wpilibJniRelease(wpi.platforms.desktop)
+    nativeRelease wpi.java.vendor.jniRelease(wpi.platforms.desktop)
 
     //implementation 'com.github.BrightLaw9:YAGSL-1360:1.0.0'
 
     // CTRE is implementation because it is not a hard requirement
     implementation 'com.ctre.phoenix:api-java:5.20.2'
     implementation 'com.ctre.phoenix:wpiapi-java:5.20.2'
+
 
     // REV is implementation because it is not a hard requirement
     implementation 'com.revrobotics.frc:REVLib-java:2022.1.0'
