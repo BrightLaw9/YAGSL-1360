@@ -21,6 +21,8 @@ allprojects {
 
         // REV
         maven { url = uri('https://maven.revrobotics.com/') }
+
+        maven { url 'https://jitpack.io' }
     }
 }
 

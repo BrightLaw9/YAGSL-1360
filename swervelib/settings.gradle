@@ -30,4 +30,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'swervelib-1360'
+rootProject.name = 'swervelib'

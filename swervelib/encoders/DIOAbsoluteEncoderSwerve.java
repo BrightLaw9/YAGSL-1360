@@ -9,12 +9,10 @@ public class DIOAbsoluteEncoderSwerve extends SwerveAbsoluteEncoder {
     public DutyCycle encoder; 
 
     private boolean isInverted = false; 
-    private double offset; 
     
-    public DIOAbsoluteEncoderSwerve(int port, double offset) { 
+    public DIOAbsoluteEncoderSwerve(int port) { 
         this.dio = new DigitalInput(port); 
         this.encoder = new DutyCycle(this.dio); 
-        this.offset = offset;
     }
 
     @Override
@@ -39,7 +37,8 @@ public class DIOAbsoluteEncoderSwerve extends SwerveAbsoluteEncoder {
      * @return Absolute position in degrees from [0, 360).
      */
     public double getAbsolutePosition() {
-        double angle = (this.inverted ? -1.0 : 1.0)  * ((360.0 * encoder.getOutput()) + this.offset);
+        //Offset is stored in the module config
+        double angle = (this.isInverted ? -1.0 : 1.0)  * (360.0 * encoder.getOutput());
 
         angle %= 360.0;
 
