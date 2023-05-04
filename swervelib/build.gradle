@@ -32,6 +32,8 @@ dependencies {
     implementation wpi.java.deps.wpilib()
     implementation wpi.java.vendor.java()
 
+    implementation 'com.github.BrightLaw9:YAGSL-1360:1.0.0'
+
     // CTRE is implementation because it is not a hard requirement
     implementation 'com.ctre.phoenix:api-java:5.20.2'
     implementation 'com.ctre.phoenix:wpiapi-java:5.20.2'
