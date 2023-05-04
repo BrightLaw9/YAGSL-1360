@@ -4,6 +4,10 @@ plugins {
     id 'edu.wpi.first.GradleRIO'
 }
 
+application {
+    mainClass.set('swervelib.example.Main')
+}
+
 
 targetCompatibility = JavaVersion.VERSION_11
 sourceCompatibility = JavaVersion.VERSION_11
